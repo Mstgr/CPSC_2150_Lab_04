@@ -5,9 +5,9 @@ import java.util.ArrayList;
 /**ListDoubleQueueContract
  *
  *
- * @invariant:
+ * @invariant: maxListSize > 0
  *
- * @corresponds:
+ * @corresponds: maxListSize = queueMaxSize
  *
  */
 public class ListDoubleQueue implements IDoubleQueue
@@ -18,11 +18,11 @@ public class ListDoubleQueue implements IDoubleQueue
     /**ListDoubleQueueConstructorContact
      *
      *
-     * @param maxSize
+     * @param maxSize Maximum size of the DoubleQueue
      *
-     * @pre
+     * @pre maxSize > 0
      *
-     * @post
+     * @post maxListSize = maxSize AND [initializes LQueue]
      *
      */
     public ListDoubleQueue(int maxSize)
@@ -32,13 +32,13 @@ public class ListDoubleQueue implements IDoubleQueue
     }
 
     /**enqueueContact
+     * Override the enqueue function
      *
+     * @param val value that will be added to the queue
      *
-     * @param val
+     * @pre None (for now)
      *
-     * @pre
-     *
-     * @post
+     * @post  AND maxSize = #maxListSize
      *
      */
     @Override
