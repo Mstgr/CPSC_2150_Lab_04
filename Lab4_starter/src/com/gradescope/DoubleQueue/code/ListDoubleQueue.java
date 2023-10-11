@@ -45,7 +45,7 @@ public class ListDoubleQueue implements IDoubleQueue
     public void enqueue(Double val)
     {
         if(LQueue.size() == this.maxListSize)
-            LQueue.set(this.maxListSize-1, val);
+            LQueue.set(this.maxListSize - 1, val);
         else
             LQueue.add(val);
     }

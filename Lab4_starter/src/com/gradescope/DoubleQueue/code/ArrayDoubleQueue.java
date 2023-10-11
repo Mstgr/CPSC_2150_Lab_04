@@ -13,6 +13,12 @@ public class ArrayDoubleQueue implements IDoubleQueue
     private Double[] queue;
     private int queueMaxSize;
 
+    // introduce two new variables
+    // need to mention these in contracts
+    private int front = 0;
+    private int back = 0;
+
+
     /**ArrayDoubleQueueConstructorContact
      * Constructor for the arrayListDouble queue.
      *
@@ -25,8 +31,13 @@ public class ArrayDoubleQueue implements IDoubleQueue
      */
     public ArrayDoubleQueue(int maxSize)
     {
+        queueMaxSize = maxSize;
+        queue = new Double[queueMaxSize];
 
-
+        for (int i = 0; i < queueMaxSize; i++) {
+            queue[i] = 0.0;
+            System.out.println(queue[i]);
+        }
     }
 
     /**enqueueContact
@@ -42,7 +53,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
-
+        queue[back] = val;
+        back++;
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
@@ -50,18 +62,34 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public Double dequeue()
     {
-
+        double temp = queue[front];
+        queue[front] = 0.0;
+        front++;
+        queueMaxSize--;
+        return temp;
     }
 
     @Override
     public int length()
     {
-
+        int count = 0;
+        for (int i = 0; i < queueMaxSize; i++){
+            if (queue[i] != 0.0){
+                count += 1;
+            }
+        }
+        return count;
     }
 
     public String toString()
     {
-
+        String ret = "";
+        for (int i = 0; i < queueMaxSize; i++){
+            if (queue[i] != 0){
+                ret += ("[" + queue[i] + "] ");
+            }
+        }
+        return ret;
     }
 
     //-----------------Ignore the functions below this line-----------------------
