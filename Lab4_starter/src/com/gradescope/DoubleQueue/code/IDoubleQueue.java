@@ -53,4 +53,18 @@ public interface IDoubleQueue <T>
      *@post max_queue_size = #max_queue_size AND queueSize = #queueSize
      */
     public String toString();
+
+    /** Contract for peek()
+     *
+     */
+    default T peek(){
+        T first = dequeue();
+        enqueue(first);
+
+        for (int i = 1; i < length(); i++){
+            T item = dequeue();
+            enqueue(item);
+        }
+        return first;
+    }
 }

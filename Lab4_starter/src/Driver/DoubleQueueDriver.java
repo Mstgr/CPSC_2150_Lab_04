@@ -37,7 +37,7 @@ public class DoubleQueueDriver
         System.out.println("\nAdding the Dequeued value back to the Queue...");
         myQueue.enqueue(removed);
         System.out.println("\nQueue after adding the Dequeued value back to the Queue: " + myQueue);
-        //System.out.println("\nPeek Value: [" + myQueue.peek() + "]");
+        System.out.println("\nPeek Value: [" + myQueue.peek() + "]");
         System.out.println("\nFinal Queue: " + myQueue);
     }
 }
