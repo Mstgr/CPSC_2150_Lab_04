@@ -54,8 +54,13 @@ public interface IDoubleQueue <T>
      */
     public String toString();
 
-    /** Contract for peek()
+    /** peek() Contract
      *
+     * @return the left-most item in the queue
+     *
+     * @pre length() > 0
+     *
+     * @post peek = [left-most item in queue] AND queue = #queue
      */
     default T peek(){
         T first = dequeue();
