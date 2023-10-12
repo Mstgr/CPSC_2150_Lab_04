@@ -11,11 +11,11 @@ package com.gradescope.DoubleQueue.code;
  *@constraints: maxSize > 0
  *
  */
-public interface IDoubleQueue
+public interface IDoubleQueue <T>
 {
 
     //This function's contracts are in the individual classes
-    public void enqueue(Double val);
+    public void enqueue(T val);
 
     /**dequeueContract
      * Dequeue removes an item from the queue.
@@ -28,7 +28,7 @@ public interface IDoubleQueue
      *@post degueue = [value that was removed]
      *@psot queueSize -= 1 AND max_queue_size = #max_queue_size
      */
-    public Double dequeue();
+    public T dequeue();
 
     /**lengthContract
      *
