@@ -13,11 +13,6 @@ public class ArrayDoubleQueue implements IDoubleQueue
     private Double[] queue;
     private int queueMaxSize;
 
-    // introduce two new variables
-    // need to mention these in contracts
-    private int front = 0;
-    private int back = 0;
-
 
     /**ArrayDoubleQueueConstructorContact
      * Constructor for the arrayListDouble queue.
@@ -33,14 +28,9 @@ public class ArrayDoubleQueue implements IDoubleQueue
     {
         queueMaxSize = maxSize;
         queue = new Double[queueMaxSize];
-
-        for (int i = 0; i < queueMaxSize; i++) {
-            queue[i] = 0.0;
-            System.out.println(queue[i]);
-        }
     }
 
-    /**enqueueContact
+    /**enqueueContract
      * Enqueue adds an item to the queue.
      *
      * @param val the Double to be added
@@ -53,8 +43,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public void enqueue(Double val)
     {
+        int back = length();
         queue[back] = val;
-        back++;
     }
 
     //Note: The below 3 functions intentionally do not have contracts. You do not need to add them.
@@ -62,10 +52,11 @@ public class ArrayDoubleQueue implements IDoubleQueue
     @Override
     public Double dequeue()
     {
-        double temp = queue[front];
-        queue[front] = 0.0;
-        front++;
-        queueMaxSize--;
+        double temp = queue[0];
+        for (int i = 0; i < queueMaxSize - 1; i++) {
+            queue[i] = queue[i+1];
+        }
+        queue[queueMaxSize - 1] = null;
         return temp;
     }
 
@@ -73,10 +64,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public int length()
     {
         int count = 0;
-        for (int i = 0; i < queueMaxSize; i++){
-            if (queue[i] != 0.0){
-                count += 1;
-            }
+        while (queue[count] != null) {
+            count++;
         }
         return count;
     }
@@ -84,10 +73,8 @@ public class ArrayDoubleQueue implements IDoubleQueue
     public String toString()
     {
         String ret = "";
-        for (int i = 0; i < queueMaxSize; i++){
-            if (queue[i] != 0){
-                ret += ("[" + queue[i] + "] ");
-            }
+        for (int i = 0; i < queueMaxSize; i++) {
+            ret += ("[" + queue[i] + "] ");
         }
         return ret;
     }

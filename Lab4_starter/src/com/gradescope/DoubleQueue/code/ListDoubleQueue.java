@@ -3,7 +3,7 @@ package com.gradescope.DoubleQueue.code;
 import java.util.ArrayList;
 
 /**ListDoubleQueueContract
- *
+ *ArrayList implementation for the Double queue.
  *
  * @invariant: maxListSize > 0
  *
@@ -36,9 +36,9 @@ public class ListDoubleQueue implements IDoubleQueue
      *
      * @param val value that will be added to the queue
      *
-     * @pre None (for now)
+     * @pre None
      *
-     * @post  AND maxSize = #maxListSize
+     * @post  [val is set or added to LQueue] AND maxListSize = #maxListSize
      *
      */
     @Override
