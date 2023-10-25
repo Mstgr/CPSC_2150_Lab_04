@@ -25,8 +25,8 @@ public interface IDoubleQueue <T>
      *@pre queueSize > 0
      *
      *@post [remove first value of the queue]
-     *@post degueue = [value that was removed]
-     *@psot queueSize -= 1 AND max_queue_size = #max_queue_size
+     *@post dequeue = [value that was removed]
+     *@post queueSize -= 1 AND max_queue_size = #max_queue_size
      */
     public T dequeue();
 
