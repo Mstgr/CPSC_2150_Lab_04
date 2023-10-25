@@ -33,7 +33,7 @@ public class ArrayDoubleQueue <T> implements IDoubleQueue<T>
     /**enqueueContract
      * Enqueue adds an item to the queue.
      *
-     * @param val the Double to be added
+     * @param val the type to be added
      *
      * @pre |self| < queueMaxSize
      *
