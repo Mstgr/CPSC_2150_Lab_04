@@ -1,7 +1,7 @@
 package com.gradescope.DoubleQueue.code;
 
 /**ArrayDoubleQueueContract
- * Array implementation for the Double queue.
+ * Array implementation for the queue.
  *
  * @invariant: queueMaxSize > 0
  *

@@ -22,11 +22,11 @@ public interface IDoubleQueue <T>
      *
      *@return the first value in queue (value that is removed)
      *
-     *@pre queueSize > 0
+     *@pre maxListSize > 0 AND queueMaxSize > 0
      *
      *@post [remove first value of the queue]
      *@post dequeue = [value that was removed]
-     *@post queueSize -= 1 AND max_queue_size = #max_queue_size
+     *@post [queue size decreased by one] AND maxListSize = #maxListSize AND queueMaxSize = #queueMaxSize
      */
     public T dequeue();
 
@@ -37,8 +37,8 @@ public interface IDoubleQueue <T>
      *
      *@pre None
      *
-     *@post length = queueSize
-     *@post queueSize = #queueSize AND max_queue_size = #max_queue_size
+     *@post length = [size of the queue/list]
+     *@post maxListSize = #maxListSize AND queueMaxSize = #queueMaxSize
      */
     public int length();
 
@@ -50,7 +50,7 @@ public interface IDoubleQueue <T>
      *@pre None
      *
      *@post toString = [string representing the values in queue]
-     *@post max_queue_size = #max_queue_size AND queueSize = #queueSize
+     *@post maxListSize = #maxListSize AND queueMaxSize = #queueMaxSize
      */
     public String toString();
 
@@ -60,7 +60,7 @@ public interface IDoubleQueue <T>
      *
      * @pre length() > 0
      *
-     * @post peek = [left-most item in queue] AND queue = #queue
+     * @post peek = [left-most item in queue] AND maxListSize = #maxListSize AND queueMaxSize = #queueMaxSize
      */
     default T peek(){
         T first = dequeue();
